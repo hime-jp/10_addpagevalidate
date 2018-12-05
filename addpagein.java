@@ -35,7 +35,7 @@ public class addpagein extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
+            request.setCharacterEncoding("UTF-8");
 	    response.setContentType("text/html; charset=UTF-8");
 	    PrintWriter out = response.getWriter();        
 	    out.println("<html>");
@@ -74,7 +74,7 @@ public class addpagein extends HttpServlet {
 		List<String> genrelist = Arrays.asList(genre);
 		List<String>stocklist = Arrays.asList(stock);
 
-      out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
+            out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>著者</td><td><input type=\"text\" name=\"writer\" disabled=\"disabled\" value=\"" + writer + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>出版社</td><td><input type=\"text\" name=\"publisher\" disabled=\"disabled\" value=\"" + publisher + "\" /></td></tr>");
 	    out.println("        <tr><td></td><td>価格</td><td><input type=\"text\" name=\"price\" disabled=\"disabled\" value=\"" + price + "\" /></td></tr>");
@@ -135,7 +135,7 @@ public class addpagein extends HttpServlet {
     		if(genrelist.contains("2") ) {
     			out.println("checked");
     	}
-    	out.println("/>ビジネス");
+    	    out.println("/>ビジネス");
     	
     	
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"3\" disabled=\"disabled\" ");
