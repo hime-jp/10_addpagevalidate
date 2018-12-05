@@ -134,7 +134,7 @@ public class addpagein extends HttpServlet {
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"2\" disabled=\"disabled\" ");
     		if(genrelist.contains("2") ) {
     			out.println("checked");
-    	}
+    		}
     	    out.println("/>ビジネス");
     	
     	
