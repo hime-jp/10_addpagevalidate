@@ -65,11 +65,11 @@ public class addpagein extends HttpServlet {
 		
 //		List<String> genrearray = new ArrayList<String>();
 //        
-//		    genrearray.add("0");
-//        genrearray.add("1");
-//        genrearray.add("2");
-//        genrearray.add("3");
-//        genrearray.add("4");
+//		    	genrearray.add("0");
+//        		genrearray.add("1");
+//        		genrearray.add("2");
+//        		genrearray.add("3");
+//        		genrearray.add("4");
 		
 		List<String> genrelist = Arrays.asList(genre);
 		List<String>stocklist = Arrays.asList(stock);
