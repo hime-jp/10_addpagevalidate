@@ -59,7 +59,11 @@ public class addpagein extends HttpServlet {
 		stock = request.getParameterValues("stock");
 		remarks = request.getParameter("remarks");
 		
+		//Validator読み込み
 		Validator validator = new Validator();
+		validator.requiredCheck(title, "タイトル");
+		validator.minlengthCheck(writer, "著者");
+		validator.IntegerCheck(price, "価格");
 	    
 		// １：ジャンルのString配列型のデータを、List型に変換
 		
