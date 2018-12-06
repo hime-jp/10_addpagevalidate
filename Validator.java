@@ -38,19 +38,19 @@ public class Validator {
         
     	}
     
-    public boolean IntegerCheck(String param, String message) {
+    public boolean IntegerCheck(String val, String message) {
     	
-        boolean result = true;
+//        boolean result = true;
 
-		int num = Integer.parseInt();
-        if(param == null) {
-            result = false;
+    	try {
+    		Integer.parseInt(val);
+    		return true;
+    	} catch (NumberFormatException nfex) {	
             errors.append("■" + message + "は数値入力です。<br>");
-        }
-        
-        return result;
-        
+    		return false;
     	}
+        
+    }
     
     	public String getMessage() {
     		return errors.toString();
