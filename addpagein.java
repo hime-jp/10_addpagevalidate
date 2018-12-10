@@ -37,20 +37,19 @@ public class addpagein extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 	    response.setContentType("text/html; charset=UTF-8");
-	    PrintWriter out = response.getWriter();        
+		
+		
+		
+	    PrintWriter out = response.getWriter();   
 	    out.println("<html>");
 	    out.println("<head>");
-	    out.println("  <title>‘Ğ“o˜^Šm”F‰æ–Ê</title>");
+	    out.println("  <title>æ›¸ç±ç™»éŒ²ç¢ºèªç”»é¢</title>");
 	    out.println("</head>");
-	    out.println("<body>");
-	    out.println("  <h2>¡‘ĞİŒÉŠÇ—ƒVƒXƒeƒ€</h2>");
-	    out.println("    <h3>@y‘Ğ“o˜^Šm”F‰æ–Êz</h3>");
-	    out.println("      <table>");
-	    
-		String title, writer, publisher, price, remarks;
+		
+	    String title, writer, publisher, price, remarks;
 		String[] genre;
 		String[] stock;
-	    
+	    	
 		title = request.getParameter("title");
 		writer = request.getParameter("writer");
 		publisher = request.getParameter("publisher");
@@ -60,11 +59,43 @@ public class addpagein extends HttpServlet {
 		remarks = request.getParameter("remarks");
 		
 		Validator validator = new Validator();
-		validator.requiredCheck(title, "ƒ^ƒCƒgƒ‹");
-		validator.minlengthCheck(writer, "’˜Ò");
-		validator.IntegerCheck(price, "‰¿Ši");
+		validator.requiredCheck(title, "ã‚¿ã‚¤ãƒˆãƒ«");
+		validator.minlengthCheck(writer, "è‘—è€…");
+		validator.IntegerCheck(price, "ä¾¡æ ¼");
 	    
-		// ‚PFƒWƒƒƒ“ƒ‹‚ÌString”z—ñŒ^‚Ìƒf[ƒ^‚ğAListŒ^‚É•ÏŠ·
+	    if(errors.toString()){
+		    //ã‚¨ãƒ©ãƒ¼ã®æ–‡
+	    }
+	    else{
+		//æ™®é€šã®ç”»é¢
+	    }
+		
+
+	    out.println("<body>");
+	    out.println("  <h2>â– æ›¸ç±åœ¨åº«ç®¡ç†ã‚·ã‚¹ãƒ†ãƒ </h2>");
+	    out.println("    <h3>ã€€ã€æ›¸ç±ç™»éŒ²ç¢ºèªç”»é¢ã€‘</h3>");
+	    out.println("      <table>");
+	    	
+		/*
+		String title, writer, publisher, price, remarks;
+		String[] genre;
+		String[] stock;
+	    	
+		title = request.getParameter("title");
+		writer = request.getParameter("writer");
+		publisher = request.getParameter("publisher");
+		price = request.getParameter("price");
+		genre = request.getParameterValues("genre");
+		stock = request.getParameterValues("stock");
+		remarks = request.getParameter("remarks");
+		
+		Validator validator = new Validator();
+		validator.requiredCheck(title, "ã‚¿ã‚¤ãƒˆãƒ«");
+		validator.minlengthCheck(writer, "è‘—è€…");
+		validator.IntegerCheck(price, "ä¾¡æ ¼");
+	    	*/
+		
+		// ï¼‘ï¼šã‚¸ãƒ£ãƒ³ãƒ«ã®Stringé…åˆ—å‹ã®ãƒ‡ãƒ¼ã‚¿ã‚’ã€Listå‹ã«å¤‰æ›
 		
 //		List<String> genrearray = new ArrayList<String>();
 //        
@@ -83,11 +114,11 @@ public class addpagein extends HttpServlet {
 		
 		List<String>stocklist = Arrays.asList(stock);
 
-        out.println("        <tr><td>@@</td><td>ƒ^ƒCƒgƒ‹</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
-	    out.println("        <tr><td></td><td>’˜Ò</td><td><input type=\"text\" name=\"writer\" disabled=\"disabled\" value=\"" + writer + "\" /></td></tr>");
-	    out.println("        <tr><td></td><td>o”ÅĞ</td><td><input type=\"text\" name=\"publisher\" disabled=\"disabled\" value=\"" + publisher + "\" /></td></tr>");
-	    out.println("        <tr><td></td><td>‰¿Ši</td><td><input type=\"text\" name=\"price\" disabled=\"disabled\" value=\"" + price + "\" /></td></tr>");
-	    out.println("        <tr><td></td><td>ƒWƒƒƒ“ƒ‹</td><td>");
+        out.println("        <tr><td>ã€€ã€€</td><td>ã‚¿ã‚¤ãƒˆãƒ«</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
+	    out.println("        <tr><td></td><td>è‘—è€…</td><td><input type=\"text\" name=\"writer\" disabled=\"disabled\" value=\"" + writer + "\" /></td></tr>");
+	    out.println("        <tr><td></td><td>å‡ºç‰ˆç¤¾</td><td><input type=\"text\" name=\"publisher\" disabled=\"disabled\" value=\"" + publisher + "\" /></td></tr>");
+	    out.println("        <tr><td></td><td>ä¾¡æ ¼</td><td><input type=\"text\" name=\"price\" disabled=\"disabled\" value=\"" + price + "\" /></td></tr>");
+	    out.println("        <tr><td></td><td>ã‚¸ãƒ£ãƒ³ãƒ«</td><td>");
 
 	    
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"0\" disabled=\"disabled\" ");
@@ -96,33 +127,33 @@ public class addpagein extends HttpServlet {
 	    		out.println("checked");
 	    	}
 	    	
-	    /* if(genrelist‚É"0"‚ª“ü‚Á‚Ä‚¢‚é) {
+	    /* if(genrelistã«"0"ãŒå…¥ã£ã¦ã„ã‚‹) {
 	     *     out.println(" checked ");
 	         }      */
 	    	
-	    out.println(" />•¶Œ|");
+	    out.println(" />æ–‡èŠ¸");
 	    
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"1\" disabled=\"disabled\" ");
     		if(genrelist.contains("1") ) {
     			out.println("checked");
     	}
-	    /* if(genrelist‚É"1"‚ª“ü‚Á‚Ä‚¢‚é) {
+	    /* if(genrelistã«"1"ãŒå…¥ã£ã¦ã„ã‚‹) {
 	     *     out.println(" checked ");
 	         }      */
-	    out.println(" />À—p");
+	    out.println(" />å®Ÿç”¨");
 	    
 	    /*
-	     * 1:•¶Œ|‚Ì‚½‚ß‚Ì<input type="checkbox"...>o—Í
-	     * 2:À—p‚Ì‚½‚ß‚Ì<input type="checkbox"...>o—Í
-	     * 3:ƒrƒWƒlƒX‚Ì‚½‚ß‚Ì<input type="checkbox"...>o—Í
-	     * 4:‹³—{‚Ì‚½‚ß‚Ì<input type="checkbox"...>o—Í
-	     * 5:ï–¡‚Ì‚½‚ß‚Ì<input type="checkbox"...>o—Í
+	     * 1:æ–‡èŠ¸ã®ãŸã‚ã®<input type="checkbox"...>å‡ºåŠ›
+	     * 2:å®Ÿç”¨ã®ãŸã‚ã®<input type="checkbox"...>å‡ºåŠ›
+	     * 3:ãƒ“ã‚¸ãƒã‚¹ã®ãŸã‚ã®<input type="checkbox"...>å‡ºåŠ›
+	     * 4:æ•™é¤Šã®ãŸã‚ã®<input type="checkbox"...>å‡ºåŠ›
+	     * 5:è¶£å‘³ã®ãŸã‚ã®<input type="checkbox"...>å‡ºåŠ›
 	     * 
 	     * 
 	     */
 
 	    
-	    // ‚QFƒWƒƒƒ“ƒ‹‚ÌList‚Ìƒf[ƒ^‚É0‚ªŠÜ‚Ü‚ê‚é‚©
+	    // ï¼’ï¼šã‚¸ãƒ£ãƒ³ãƒ«ã®Listã®ãƒ‡ãƒ¼ã‚¿ã«0ãŒå«ã¾ã‚Œã‚‹ã‹
 	    // genrelist<="0", "2"
 	    // genrelist<="0", "1", "3"
 	    // genrelist<="3", "4"
@@ -132,52 +163,52 @@ public class addpagein extends HttpServlet {
 //		for(int i = 0; i <= genrelist.size() - 1; i++) {
 //			String value = genrelist.get(i);
 //			if(i == 0) {
-//				out.println("checked />•¶Œ|");
+//				out.println("checked />æ–‡èŠ¸");
 //			} else {
-//				out.println(" />•¶Œ|");
+//				out.println(" />æ–‡èŠ¸");
 //			}
 //		}
 	    
-	    // ‚QFƒWƒƒƒ“ƒ‹‚ÌList‚Ìƒf[ƒ^‚É1‚ªŠÜ‚Ü‚ê‚é‚©
+	    // ï¼’ï¼šã‚¸ãƒ£ãƒ³ãƒ«ã®Listã®ãƒ‡ãƒ¼ã‚¿ã«1ãŒå«ã¾ã‚Œã‚‹ã‹
 
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"2\" disabled=\"disabled\" ");
     		if(genrelist.contains("2") ) {
     			out.println("checked");
     	}
-    	out.println("/>ƒrƒWƒlƒX");
+    	out.println("/>ãƒ“ã‚¸ãƒã‚¹");
     	
     	
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"3\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("3")) {
 	    		out.println("checked");
 	    	}
-	    out.println("/>‹³—{");
+	    out.println("/>æ•™é¤Š");
 	    
 	    
 	    out.println("          <input type=\"checkbox\" name=\"genre\" value=\"4\" disabled=\"disabled\" ");
 	    	if(genrelist.contains("4")) {
 	    		out.println("checked");
 	    	}
-	    out.println("/>ï–¡</td></tr>");
+	    out.println("/>è¶£å‘³</td></tr>");
 	    
 	    
-	    out.println("        <tr><td></td><td>İŒÉ</td><td>");
+	    out.println("        <tr><td></td><td>åœ¨åº«</td><td>");
 	    out.println("          <input type=\"radio\" name=\"stock\" value=\"1\" checked disabled=\"disabled\" ");
 	    	if(stocklist.contains("1")) {
 	    		out.println("checked");
 	    	}
-	    out.println("/>‚ ‚è");
+	    out.println("/>ã‚ã‚Š");
 	    
 	    
 	    out.println("          <input type=\"radio\" name=\"stock\" value=\"0\" disabled=\"disabled\" ");
     	if(stocklist.contains("0")) {
     		out.println("checked");
     	}
-	    out.println("/>‚È‚µ</td></tr>");    
-	    out.println("        <tr><td></td><td>”õl</td><td><textarea name=\"remarks\" cols=\"40\" rows=\"4\" disabled=\"disabled\" value= \"" + remarks + "\" />"+ remarks +"</textarea></td></tr>");
+	    out.println("/>ãªã—</td></tr>");    
+	    out.println("        <tr><td></td><td>å‚™è€ƒ</td><td><textarea name=\"remarks\" cols=\"40\" rows=\"4\" disabled=\"disabled\" value= \"" + remarks + "\" />"+ remarks +"</textarea></td></tr>");
 	    out.println("        <tr><td></td><td height=\"30\"></td><td></td></tr>");
 	    out.println("        <tr><td></td><td></td><td align=\"right\">");
-	    out.println("          <input type=\"submit\" onclick=\"window.history.back();\" value=\"ƒLƒƒƒ“ƒZƒ‹\" />");
+	    out.println("          <input type=\"submit\" onclick=\"window.history.back();\" value=\"ã‚­ãƒ£ãƒ³ã‚»ãƒ«\" />");
 	    out.println("      </table>");
 	    out.println("    </form>");
 	    out.println("</body>");
@@ -196,7 +227,7 @@ public class addpagein extends HttpServlet {
 	}
 	
 	
-	//ƒfƒoƒbƒO—p‚â‚Å
+	//ãƒ‡ãƒãƒƒã‚°ç”¨ã‚„ã§
 	public static void main(String[] args) {
 		System.out.println("aaa");
 		ArrayList<String> list = new ArrayList<String>();
@@ -204,8 +235,8 @@ public class addpagein extends HttpServlet {
 		list.add("1");
 		list.add("5");
 		
-		System.out.println("1‚ª“ü‚Á‚Ä‚¢‚éF" + list.contains("1"));
-		System.out.println("2‚ª“ü‚Á‚Ä‚¢‚éF" + list.contains("2"));
+		System.out.println("1ãŒå…¥ã£ã¦ã„ã‚‹ï¼š" + list.contains("1"));
+		System.out.println("2ãŒå…¥ã£ã¦ã„ã‚‹ï¼š" + list.contains("2"));
 	}
 
 }
