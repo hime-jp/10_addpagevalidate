@@ -2,7 +2,7 @@ package validate;
 
 public class Validator {
 
-	StringBuffer errors;
+	private StringBuffer errors;
 
 	public Validator() {
 
@@ -10,7 +10,7 @@ public class Validator {
 	}
 
 	/**
-	 * �K�{�`�F�b�N
+	 * 必須チェック
 	 */
 	public boolean requiredCheck(String param, String message) {
 
@@ -18,7 +18,7 @@ public class Validator {
 
 		if(param == null) {
 			result = false;
-			errors.append("��" + message + "�͕K�{���͂ł��B<br>");
+			errors.append("■" + message + "は必須入力です。<br>");
 		}
 
 		return result;
@@ -31,7 +31,7 @@ public class Validator {
 
 		if(param.length() > 10) {
 			result = false;
-			errors.append("��" + message + "��10�����ȓ��ł��B<br>");
+			errors.append("■" + message + "は10文字以内です。<br>");
 		}
 
 		return result;
@@ -46,7 +46,7 @@ public class Validator {
 			Integer.parseInt(val);
 			return true;
 		} catch (NumberFormatException nfex) {	
-			errors.append("��" + message + "�͐��l���͂ł��B<br>");
+			errors.append("■" + message + "は数値入力です。<br>");
 			return false;
 		}
 
