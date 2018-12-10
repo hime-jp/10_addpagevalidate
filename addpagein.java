@@ -34,19 +34,15 @@ public class addpagein extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-	    response.setContentType("text/html; charset=UTF-8");
 		
 		
 		
-	    PrintWriter out = response.getWriter();   
-	    out.println("<html>");
-	    out.println("<head>");
-	    out.println("  <title>書籍登録確認画面</title>");
-	    out.println("</head>");
 		
-	    String title, writer, publisher, price, remarks;
+		
+		
+		
+		
+		  String title, writer, publisher, price, remarks;
 		String[] genre;
 		String[] stock;
 	    	
@@ -62,20 +58,37 @@ public class addpagein extends HttpServlet {
 		validator.requiredCheck(title, "タイトル");
 		validator.minlengthCheck(writer, "著者");
 		validator.IntegerCheck(price, "価格");
-	    
-	    if(errors.toString()){
-		    //エラーの文
+	        
+                String str = validator.getMessage();
+                
+	    if(str.length() > 0){
+		    //エラーの時の文
+		    request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter(); 
+			out.println("<html>");
+			out.println("<head>");
+			out.println("  <title>書籍登録確認画面</title>");
+			out.println("</head>");
+			out.println("<body>");
+			out.println("あああああああああああああああああああああああああああああああああああああああああああああああああああああああああ！！！！");
+			out.println("</body>");
+			out.println("</html>");
 	    }
 	    else{
-		//普通の画面
-	    }
-		
-
+            //エラーがなかった時の文
+	    // TODO Auto-generated method stub
+	    request.setCharacterEncoding("UTF-8");
+	    response.setContentType("text/html; charset=UTF-8");	
+	    PrintWriter out = response.getWriter();   
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("  <title>書籍登録確認画面</title>");
+	    out.println("</head>");
 	    out.println("<body>");
 	    out.println("  <h2>■書籍在庫管理システム</h2>");
 	    out.println("    <h3>　【書籍登録確認画面】</h3>");
 	    out.println("      <table>");
-	    	
 		/*
 		String title, writer, publisher, price, remarks;
 		String[] genre;
@@ -215,7 +228,7 @@ public class addpagein extends HttpServlet {
 	    out.println("</html>");
 	  }
 	
-
+	}
 	
 
 	/**
