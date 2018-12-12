@@ -10,28 +10,28 @@ public class Validator {
 	}
 
 	/**
-	 * å¿…é ˆãƒã‚§ãƒƒã‚¯
+	 * •K{ƒ`ƒFƒbƒN
 	 */
 	public boolean requiredCheck(String param, String message) {
 
 		boolean result = true;
 
-		if(param == null) {
+		if(param == null  || param.length() == 0) {
 			result = false;
-			errors.append("â– " + message + "ã¯å¿…é ˆå…¥åŠ›ã§ã™ã€‚<br>");
+			errors.append("¡" + message + "‚Í•K{“ü—Í‚Å‚·B<br>");
 		}
 
 		return result;
 
 	}
 
-	public boolean minlengthCheck(String param, String message) {
+	public boolean maxlengthCheck(String param, String message) {
 
 		boolean result = true;
 
 		if(param.length() > 10) {
 			result = false;
-			errors.append("â– " + message + "ã¯10æ–‡å­—ä»¥å†…ã§ã™ã€‚<br>");
+			errors.append("¡" + message + "‚Í10•¶ŽšˆÈ“à‚Å‚·B<br>");
 		}
 
 		return result;
@@ -46,14 +46,31 @@ public class Validator {
 			Integer.parseInt(val);
 			return true;
 		} catch (NumberFormatException nfex) {	
-			errors.append("â– " + message + "ã¯æ•°å€¤å…¥åŠ›ã§ã™ã€‚<br>");
+			errors.append("¡" + message + "‚Í”’l“ü—Í‚Å‚·B<br>");
 			return false;
 		}
 
 	}
 
+	public boolean minlengthCheck(String val, String message) {
 
+		//boolean result = true;
 
+		try {
+			int num = Integer.parseInt(val);
+
+			if(num >= 0) {
+				return true;
+			}else {
+				errors.append("¡" + message + "‚Í0•¶ŽšˆÈã‚Å‚·B<br>");
+				return false;
+			}
+
+		} catch (NumberFormatException nfex) {	
+
+		}
+		return false;
+	}
 
 
 
