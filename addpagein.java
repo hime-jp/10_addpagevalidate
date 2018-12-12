@@ -62,7 +62,9 @@ public class addpagein extends HttpServlet {
 
 		if(str.length() > 0){
 			//ƒGƒ‰[‚Ì•¶
+			out.println("<h2><span style=color:#F00;>");
 			out.println(str);
+			out.println("</span></h2>");
 
 		}else{
 			//•’Ê‚Ì‰æ–Ê    
