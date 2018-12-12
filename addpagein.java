@@ -52,7 +52,7 @@ public class addpagein extends HttpServlet {
 		Validator validator = new Validator();
 		validator.requiredCheck(title, "ƒ^ƒCƒgƒ‹");
 		validator.maxlengthCheck(writer, "’˜ŽÒ");
-		validator.IntegerCheck(price, "‰¿Ši");
+		validator.MinusCheck(price, "‰¿Ši");
 
 		String str = validator.getMessage();
 
