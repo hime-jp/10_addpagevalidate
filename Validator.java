@@ -52,7 +52,7 @@ public class Validator {
 
 	}
 
-	public boolean minlengthCheck(String val, String message) {
+	public boolean MinusCheck(String val, String message) {
 
 		//boolean result = true;
 
@@ -71,6 +71,7 @@ public class Validator {
 		}
 		return false;
 	}
+	
 
 
 
