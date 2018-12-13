@@ -52,7 +52,9 @@ public class addpagein extends HttpServlet {
 		Validator validator = new Validator();
 		validator.requiredCheck(title, "タイトル");
 		validator.maxlengthCheck(writer, "著者");
+		validator.IntegerCheck(price, "価格");
 		validator.MinusCheck(price, "価格");
+		validator.BoxCheck(genre, "ジャンル");
 
 		String str = validator.getMessage();
 
@@ -77,25 +79,6 @@ public class addpagein extends HttpServlet {
 			out.println("    <h3>　【書籍登録確認画面】</h3>");
 			out.println("      <table>");
 
-			/*
-		String title, writer, publisher, price, remarks;
-		String[] genre;
-		String[] stock;
-
-		title = request.getParameter("title");
-		writer = request.getParameter("writer");
-		publisher = request.getParameter("publisher");
-		price = request.getParameter("price");
-		genre = request.getParameterValues("genre");
-		stock = request.getParameterValues("stock");
-		remarks = request.getParameter("remarks");
-
-		Validator validator = new Validator();
-		validator.requiredCheck(title, "タイトル");
-		validator.minlengthCheck(writer, "著者");
-		validator.IntegerCheck(price, "価格");
-			 */
-
 			// １：ジャンルのString配列型のデータを、List型に変換
 
 			//		List<String> genrearray = new ArrayList<String>();
@@ -106,13 +89,7 @@ public class addpagein extends HttpServlet {
 			//        genrearray.add("3");
 			//        genrearray.add("4");
 
-			List<String> genrelist = new ArrayList<String>();
-
-			if(genre != null) {
-				genrelist = Arrays.asList(stock);
-
-			}
-
+			List<String> genrelist = Arrays.asList(genre);
 			List<String>stocklist = Arrays.asList(stock);
 
 			out.println("        <tr><td>　　</td><td>タイトル</td><td><input type=\"text\" name=\"title\" disabled=\"disabled\" value=\"" + title + "\" /></td></tr>");
@@ -228,7 +205,7 @@ public class addpagein extends HttpServlet {
 	}
 
 
-	//デバッグ用やで
+	//デバッグ用
 	public static void main(String[] args) {
 		System.out.println("aaa");
 		ArrayList<String> list = new ArrayList<String>();

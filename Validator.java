@@ -12,6 +12,8 @@ public class Validator {
 	/**
 	 * 必須チェック
 	 */
+	
+	//タイトルチェック
 	public boolean requiredCheck(String param, String message) {
 
 		boolean result = true;
@@ -25,6 +27,7 @@ public class Validator {
 
 	}
 
+	//文字超えチェック
 	public boolean maxlengthCheck(String param, String message) {
 
 		boolean result = true;
@@ -38,9 +41,8 @@ public class Validator {
 
 	}
 
+	//数値チェック
 	public boolean IntegerCheck(String val, String message) {
-
-		//        boolean result = true;
 
 		try {
 			Integer.parseInt(val);
@@ -52,9 +54,8 @@ public class Validator {
 
 	}
 
+	//マイナスチェック
 	public boolean MinusCheck(String val, String message) {
-
-		//boolean result = true;
 
 		try {
 			int num = Integer.parseInt(val);
@@ -62,7 +63,7 @@ public class Validator {
 			if(num >= 0) {
 				return true;
 			}else {
-				errors.append("■" + message + "は0文字以上です。<br>");
+				errors.append("■" + message + "は0以上です。<br>");
 				return false;
 			}
 
@@ -72,6 +73,24 @@ public class Validator {
 		return false;
 	}
 	
+	//ボックスチェック
+	public boolean BoxCheck(String[] genre, String message) {
+		
+		boolean result = true;
+
+		if(genre == null  || genre.length == 0) {
+			result = false;
+			errors.append("■" + message + "を選択してください。<br>");
+		}
+
+		else if(genre.length > 3) {
+			result = false;
+			errors.append("■" + message + "の選択は3つまでです。<br>");
+		}
+
+		return result;
+
+	}
 
 
 
