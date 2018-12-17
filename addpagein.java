@@ -49,6 +49,12 @@ public class addpagein extends HttpServlet {
 		stock = request.getParameterValues("stock");
 		remarks = request.getParameter("remarks");
 
+		
+		if(price == null || price.equals("")) {
+			price = "0";
+		}
+		
+		
 		Validator validator = new Validator();
 		validator.requiredCheck(title, "ƒ^ƒCƒgƒ‹");
 		validator.maxlengthCheck(writer, "’˜ŽÒ");
